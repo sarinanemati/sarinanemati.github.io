@@ -85,11 +85,54 @@
         </ul>
     </section>
 
-    <!-- Work Section -->
-    <section id="work">
-        <h2>Work</h2>
-        <p>Selected projects and analyses coming soon.</p>
-    </section>
+<!-- Work Section -->
+<section id="work">
+    <h2>Work</h2>
+
+    <div class="project-card">
+        <h3>Recommendation System Based on Your Persona</h3>
+        <span class="project-links">
+            🔗 <a href="https://persona2appuct-ypa6bivgxlz4rh36tnrtbv.streamlit.app/" target="_blank">Live Demo (Streamlit)</a>
+            &nbsp;|&nbsp;
+            💻 <a href="https://github.com/sarinanemati/persona2product" target="_blank">GitHub Repository</a>
+        </span>
+
+        <p class="project-desc">
+            Persona2Product is a context-aware recommendation engine built with Streamlit.
+            It moves beyond standard collaborative filtering by matching users to products
+            based on their shopping persona (e.g., Brand-Oriented, Budget-Conscious,
+            Performance-Focused). The system leverages Clustering and an integrated
+            Reinforcement Learning (RL) loop to refine recommendations based on user
+            interactions (likes), creating a personalized and adaptive shopping experience.
+        </p>
+
+        <h4>Project Challenges</h4>
+        <ol class="challenges">
+            <li>
+                Faced with a lack of pre-existing datasets for user shopping personas,
+                I engineered a custom <strong>Web Scraper</strong> to extract raw product
+                and user-interaction data from scratch.
+            </li>
+            <li>
+                To overcome the lack of pre-labeled persona tags in the scraped reviews,
+                I applied <strong>Unsupervised Clustering</strong> to automatically segment
+                users and map them into distinct behavioral archetypes
+                (e.g., Brand-Oriented, Budget-Conscious), laying the foundation for the
+                reinforcement learning engine.
+            </li>
+        </ol>
+
+        <div class="tags">
+            <span>Python</span>
+            <span>Streamlit</span>
+            <span>Clustering</span>
+            <span>Reinforcement Learning</span>
+            <span>Web Scraping</span>
+            <span>Recommender Systems</span>
+        </div>
+    </div>
+</section>
+
 
     <!-- Contact Section -->
     <section id="contact">
