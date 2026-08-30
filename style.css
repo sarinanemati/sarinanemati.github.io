@@ -155,6 +155,60 @@ footer {
     color: #bdc3c7;
     font-size: 0.9rem;
 }
+/* ===== Project Cards ===== */
+.project-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border-top: 4px solid #3498db;
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size:.project1.4rem;
+}
+
+.project-links {
+    display: block;
+    margin: 0.5rem 0 1rem;
+    font-size: 0.95rem;
+}
+
+.project-desc {
+    margin-bottom: 1.2rem;
+}
+
+.project-card h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.challenges {
+    padding-left: 1.4rem;
+    margin-bottom: 1.2rem;
+}
+
+.challenges li {
+    margin-bottom: 0.8rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tags span {
+    background: #eaf3fb;
+    color: #2c6fa8;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
 
 /* ===== Responsive ===== */
 @media (max-width: 600px) {
