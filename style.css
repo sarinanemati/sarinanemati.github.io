@@ -1,1 +1,164 @@
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: #333;
+    background-color: #fafafa;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    color: #2c3e50;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Navigation ===== */
+nav {
+    background: #2c3e50;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.nav-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: #ecf0f1;
+    font-size: 0.95rem;
+}
+
+/* ===== Hero ===== */
+#hero {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: #fff;
+    text-align: center;
+    padding: 6rem 20px;
+}
+
+#hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    font-size: 1.15rem;
+    opacity: 0.95;
+}
+
+.btn {
+    display: inline-block;
+    background: #fff;
+    color: #2c3e50;
+    padding: 0.7rem 1.8rem;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: #ecf0f1;
+    text-decoration: none;
+}
+
+/* ===== Sections ===== */
+section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 3.5rem 20px;
+}
+
+/* ===== Cards ===== */
+.card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.card h4 {
+    color: #2c3e50;
+    margin-bottom: 0.2rem;
+}
+
+.date {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ===== Lists ===== */
+.skills-list {
+    list-style: none;
+}
+
+.skills-list li {
+    background: #fff;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border-left: 4px solid #3498db;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 2rem 20px;
+    background: #2c3e50;
+    color: #bdc3c7;
+    font-size: 0.9rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    #hero h1 { font-size: 2rem; }
+    .nav-links { gap: 0.8rem; font-size: 0.85rem; }
+}
 
