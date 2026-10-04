@@ -14,13 +14,26 @@
             theme: {
                 extend: {
                     colors: {
+                        slateTheme: {
+                            50: '#f6f8fa',
+                            100: '#edf1f5',
+                            200: '#d7e0e8',
+                            300: '#b4c3d2',
+                            400: '#7c93a8',
+                            500: '#546573',
+                            600: '#43525f',
+                            700: '#2b3641',
+                            800: '#1e2631',
+                            900: '#141b24',
+                            950: '#0b1017',
+                        },
                         brand: {
-                            50: '#eef2ff',
-                            100: '#e0e7ff',
-                            400: '#818cf8',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
                         }
                     }
                 }
@@ -31,12 +44,12 @@
     <!-- Google Fonts & Lucide Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         body[dir="rtl"] {
@@ -51,44 +64,58 @@
             -webkit-backdrop-filter: blur(10px);
         }
         .nav-active {
-            color: #6366f1 !important;
+            color: #38bdf8 !important;
             font-weight: 700;
         }
         .glow-bg {
-            background: radial-gradient(circle at 50% 15%, rgba(99, 102, 241, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+            background: radial-gradient(circle at 50% 12%, rgba(84, 101, 115, 0.22) 0%, rgba(11, 16, 23, 0) 70%);
+        }
+        /* Typewriter Cursor */
+        .type-cursor {
+            display: inline-block;
+            margin-left: 4px;
+            width: 3px;
+            background-color: #38bdf8;
+            animation: cursorBlink 0.9s infinite;
+            vertical-align: middle;
+            height: 1.05em;
+        }
+        @keyframes cursorBlink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
         }
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800 dark:bg-[#090d16] dark:text-slate-200 antialiased min-h-screen relative overflow-x-hidden selection:bg-brand-500 selection:text-white">
+<body class="bg-[#f4f6f8] text-slate-800 dark:bg-[#0b1017] dark:text-[#cbd5e1] antialiased min-h-screen relative overflow-x-hidden selection:bg-brand-500 selection:text-white">
 
-    <!-- Ambient Glow Effect -->
+    <!-- Ambient Atmospheric Glow Effect -->
     <div class="fixed inset-0 glow-bg pointer-events-none z-0"></div>
 
     <!-- ==================== FLOATING GLASS NAVBAR ==================== -->
     <header class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
-        <nav class="w-full max-w-4xl glass-nav bg-white/75 dark:bg-slate-900/75 border border-slate-200/80 dark:border-slate-800/80 rounded-full px-5 py-2.5 shadow-xl shadow-black/5 flex items-center justify-between transition-all duration-300">
+        <nav class="w-full max-w-4xl glass-nav bg-white/80 dark:bg-[#141b24]/80 border border-slate-300/60 dark:border-slate-800/80 rounded-full px-5 py-2.5 shadow-xl shadow-black/10 flex items-center justify-between transition-all duration-300">
             
             <!-- Brand Logo -->
             <a href="#" class="font-extrabold tracking-tight text-lg text-slate-900 dark:text-white flex items-center gap-1">
-                <span>Sarina</span><span class="text-brand-500">.</span>
+                <span>Sarina</span><span class="text-brand-400">.</span>
             </a>
 
             <!-- Navigation Menu -->
             <ul class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
-                <li><a href="#about" class="nav-link hover:text-brand-500 dark:hover:text-brand-500 transition-colors" data-en="About" data-fa="درباره من">About</a></li>
-                <li><a href="#work" class="nav-link hover:text-brand-500 dark:hover:text-brand-500 transition-colors" data-en="Work" data-fa="پروژه‌ها">Work</a></li>
-                <li><a href="#research" class="nav-link hover:text-brand-500 dark:hover:text-brand-500 transition-colors" data-en="Research & Writing" data-fa="مقالات و یادداشت‌ها">Research & Writing</a></li>
-                <li><a href="#contact" class="nav-link hover:text-brand-500 dark:hover:text-brand-500 transition-colors" data-en="Contact" data-fa="ارتباط">Contact</a></li>
+                <li><a href="#about" class="nav-link hover:text-brand-400 dark:hover:text-brand-400 transition-colors" data-en="About" data-fa="درباره من">About</a></li>
+                <li><a href="#work" class="nav-link hover:text-brand-400 dark:hover:text-brand-400 transition-colors" data-en="Work" data-fa="پروژه‌ها">Work</a></li>
+                <li><a href="#research" class="nav-link hover:text-brand-400 dark:hover:text-brand-400 transition-colors" data-en="Research & Writing" data-fa="مقالات و یادداشت‌ها">Research & Writing</a></li>
+                <li><a href="#contact" class="nav-link hover:text-brand-400 dark:hover:text-brand-400 transition-colors" data-en="Contact" data-fa="ارتباط">Contact</a></li>
             </ul>
 
             <!-- Controls (Lang & Theme) -->
             <div class="flex items-center gap-2.5">
-                <button id="lang-btn" onclick="toggleLanguage()" class="px-2.5 py-1 text-xs font-bold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-500 dark:hover:text-white transition-all border border-slate-200 dark:border-slate-700">
+                <button id="lang-btn" onclick="toggleLanguage()" class="px-2.5 py-1 text-xs font-bold rounded-full bg-slate-200/70 dark:bg-[#1e2631] text-slate-700 dark:text-slate-300 hover:bg-brand-500 hover:text-white dark:hover:bg-brand-500 dark:hover:text-white transition-all border border-slate-300 dark:border-slate-700">
                     FA
                 </button>
 
-                <button id="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700">
+                <button id="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme" class="p-2 rounded-full bg-slate-200/70 dark:bg-[#1e2631] text-slate-700 dark:text-amber-400 hover:bg-slate-300 dark:hover:bg-[#2b3641] transition-all border border-slate-300 dark:border-slate-700">
                     <i id="theme-icon" data-lucide="sun" class="w-4 h-4 transition-transform duration-500"></i>
                 </button>
             </div>
@@ -100,28 +127,29 @@
 
         <!-- HERO SECTION -->
         <section id="hero" class="text-center pt-8 md:pt-16 pb-6 flex flex-col items-center">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-500/20 mb-6 shadow-sm">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-brand-50 dark:bg-brand-400/10 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-400/20 mb-6 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                 <span data-en="Data Science • Interpretable & Scalable ML" data-fa="علوم داده • مدل‌های تفسیرپذیر و مقیاس‌پذیر">Data Science • Interpretable & Scalable ML</span>
             </div>
 
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight max-w-3xl">
-                <span data-en="Hello, I'm" data-fa="سلام، من">Hello, I'm</span> 
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-indigo-400 to-violet-500">Sarina</span>
+            <!-- Dynamic Typewriter Title -->
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight max-w-3xl min-h-[1.3em] flex items-center justify-center">
+                <span id="typewriter-text" class="text-slate-900 dark:text-white"></span>
+                <span class="type-cursor"></span>
             </h1>
 
-            <p class="mt-6 text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl font-light leading-relaxed"
+            <p class="mt-6 text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl font-light leading-relaxed"
                data-en="A data science professional who enjoys building disciplined, interpretable, and scalable machine learning solutions for real-world business problems."
                data-fa="یک متخصص علوم داده که مشتاق ساخت راهکارهای یادگیری ماشین دقیق، تفسیرپذیر و مقیاس‌پذیر برای حل مسائل واقعی دنیای کسب‌وکار است.">
                 A data science professional who enjoys building disciplined, interpretable, and scalable machine learning solutions for real-world business problems.
             </p>
 
             <div class="mt-8 flex flex-wrap gap-4 justify-center">
-                <a href="#work" class="px-6 py-3 rounded-xl bg-brand-500 text-white font-semibold text-sm hover:bg-brand-600 transition-all shadow-lg shadow-brand-500/25 flex items-center gap-2">
+                <a href="#work" class="px-6 py-3 rounded-xl bg-slate-900 dark:bg-[#1e2631] text-white font-semibold text-sm hover:bg-slate-800 dark:hover:bg-[#2b3641] border border-slate-700/60 transition-all shadow-lg flex items-center gap-2">
                     <span data-en="Explore My Site" data-fa="مشاهده پروژه‌ها">Explore My Site</span>
                     <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
                 </a>
-                <a href="#contact" class="px-6 py-3 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-white font-semibold text-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700/80 transition-all flex items-center gap-2">
+                <a href="#contact" class="px-6 py-3 rounded-xl bg-white dark:bg-[#141b24]/90 text-slate-800 dark:text-slate-200 font-semibold text-sm border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-[#1e2631] transition-all flex items-center gap-2">
                     <span data-en="Contact Me" data-fa="ارتباط با من">Contact Me</span>
                     <i data-lucide="mail" class="w-4 h-4"></i>
                 </a>
@@ -130,9 +158,9 @@
 
         <!-- ABOUT SECTION -->
         <section id="about" class="space-y-12">
-            <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+            <div class="border-b border-slate-300 dark:border-slate-800 pb-4">
                 <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-                    <i data-lucide="user" class="text-brand-500 w-6 h-6"></i>
+                    <i data-lucide="user" class="text-brand-400 w-6 h-6"></i>
                     <span data-en="About Me" data-fa="درباره من">About Me</span>
                 </h2>
             </div>
@@ -140,19 +168,19 @@
             <!-- Education Grid -->
             <div>
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                    <i data-lucide="graduation-cap" class="text-brand-500 w-5 h-5"></i>
+                    <i data-lucide="graduation-cap" class="text-brand-400 w-5 h-5"></i>
                     <span data-en="Education" data-fa="تحصیلات">Education</span>
                 </h3>
                 <div class="grid md:grid-cols-2 gap-4">
-                    <div class="glass-card bg-white/60 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-2">
+                    <div class="glass-card bg-white/70 dark:bg-[#141b24]/60 p-5 rounded-2xl border border-slate-300/80 dark:border-slate-800 space-y-2">
                         <h4 class="font-bold text-slate-900 dark:text-white" data-en="Computer Science — Science and Research Branch of Azad University" data-fa="علوم کامپیوتر — دانشگاه آزاد اسلامی واحد علوم و تحقیقات">Computer Science — Science and Research Branch of Azad University</h4>
-                        <span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-md bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400">Oct 2024 – Present</span>
+                        <span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-md bg-brand-50 dark:bg-brand-400/10 text-brand-600 dark:text-brand-400">Oct 2024 – Present</span>
                         <p class="text-sm text-slate-600 dark:text-slate-400 pt-1" data-en="Subjects: machine learning, linear algebra, introduction to data mining, etc." data-fa="مباحث: یادگیری ماشین، جبر خطی، مقدمه‌ای بر داده‌کاوی و...">Subjects: machine learning, linear algebra, introduction to data mining, etc.</p>
                     </div>
 
-                    <div class="glass-card bg-white/60 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-2">
+                    <div class="glass-card bg-white/70 dark:bg-[#141b24]/60 p-5 rounded-2xl border border-slate-300/80 dark:border-slate-800 space-y-2">
                         <h4 class="font-bold text-slate-900 dark:text-white" data-en="Mathematics and Physics — Professor Hessabi Girl's Highschool" data-fa="ریاضی و فیزیک — دبیرستان دخترانه پروفسور حسابی">Mathematics and Physics — Professor Hessabi Girl's Highschool</h4>
-                        <span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-md bg-brand-50 dark:bg-brand-500/10 text-brand-600 dark:text-brand-400">2021 – 2024</span>
+                        <span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-md bg-brand-50 dark:bg-brand-400/10 text-brand-600 dark:text-brand-400">2021 – 2024</span>
                         <p class="text-sm text-slate-600 dark:text-slate-400 pt-1" data-en="GPA: 3.9/4.0 (19.20/20 in the Iranian grading system) • Ranked #1 in graduating class" data-fa="معدل: ۱۹.۲۰ از ۲۰ • رتبه اول پایه فارغ‌التحصیلی">GPA: 3.9/4.0 (19.20/20 in the Iranian grading system)<br>Ranked #1 in my graduating class</p>
                     </div>
                 </div>
@@ -161,28 +189,28 @@
             <!-- Skills List Grid -->
             <div>
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                    <i data-lucide="cpu" class="text-brand-500 w-5 h-5"></i>
+                    <i data-lucide="cpu" class="text-brand-400 w-5 h-5"></i>
                     <span data-en="Skills" data-fa="مهارت‌ها">Skills</span>
                 </h3>
                 <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-                    <div class="p-4 rounded-xl glass-card bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
-                        <span class="text-xs font-bold text-brand-500 block mb-1">Languages & App Dev</span>
+                    <div class="p-4 rounded-xl glass-card bg-white/60 dark:bg-[#141b24]/50 border border-slate-300/80 dark:border-slate-800">
+                        <span class="text-xs font-bold text-brand-400 block mb-1">Languages & App Dev</span>
                         Python, Git, SQL, Streamlit, Streamlit Cloud
                     </div>
-                    <div class="p-4 rounded-xl glass-card bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
-                        <span class="text-xs font-bold text-brand-500 block mb-1">Machine Learning</span>
+                    <div class="p-4 rounded-xl glass-card bg-white/60 dark:bg-[#141b24]/50 border border-slate-300/80 dark:border-slate-800">
+                        <span class="text-xs font-bold text-brand-400 block mb-1">Machine Learning</span>
                         Supervised/Unsupervised Learning, RL, scikit-learn, pandas, numpy
                     </div>
-                    <div class="p-4 rounded-xl glass-card bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
-                        <span class="text-xs font-bold text-brand-500 block mb-1">Visualization</span>
+                    <div class="p-4 rounded-xl glass-card bg-white/60 dark:bg-[#141b24]/50 border border-slate-300/80 dark:border-slate-800">
+                        <span class="text-xs font-bold text-brand-400 block mb-1">Visualization</span>
                         seaborn, matplotlib, plotly
                     </div>
-                    <div class="p-4 rounded-xl glass-card bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
-                        <span class="text-xs font-bold text-brand-500 block mb-1">AI Research</span>
+                    <div class="p-4 rounded-xl glass-card bg-white/60 dark:bg-[#141b24]/50 border border-slate-300/80 dark:border-slate-800">
+                        <span class="text-xs font-bold text-brand-400 block mb-1">AI Research</span>
                         AI ethics, XAI (Explainable AI)
                     </div>
-                    <div class="p-4 rounded-xl glass-card bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
-                        <span class="text-xs font-bold text-brand-500 block mb-1">Analytics</span>
+                    <div class="p-4 rounded-xl glass-card bg-white/60 dark:bg-[#141b24]/50 border border-slate-300/80 dark:border-slate-800">
+                        <span class="text-xs font-bold text-brand-400 block mb-1">Analytics</span>
                         PowerBI, Excel
                     </div>
                 </div>
@@ -191,29 +219,29 @@
             <!-- Volunteer Work -->
             <div>
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                    <i data-lucide="heart-handshake" class="text-brand-500 w-5 h-5"></i>
+                    <i data-lucide="heart-handshake" class="text-brand-400 w-5 h-5"></i>
                     <span data-en="Volunteer Work" data-fa="فعالیت‌های داوطلبانه">Volunteer Work</span>
                 </h3>
                 <div class="grid md:grid-cols-2 gap-4">
-                    <div class="glass-card bg-white/60 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-3">
+                    <div class="glass-card bg-white/70 dark:bg-[#141b24]/60 p-5 rounded-2xl border border-slate-300/80 dark:border-slate-800 space-y-3">
                         <div>
                             <h4 class="font-bold text-slate-900 dark:text-white">Staff Writer — youthxAI</h4>
                             <span class="text-xs text-brand-600 dark:text-brand-400 font-semibold">Feb 2026 – Present</span>
                         </div>
                         <p class="text-sm text-slate-600 dark:text-slate-400" data-en="Contribution as a volunteer AI writer, delivering deep-dive analyses into emerging ML trends." data-fa="نویسنده داوطلب هوش مصنوعی با ارائه مقالات تحلیلی در خصوص جدیدترین روندهای ML.">Contribution as a volunteer AI writer, delivering deep-dive analyses into emerging ML trends.</p>
                         <p class="text-xs text-slate-500 dark:text-slate-400"><strong>Topics:</strong> What is Tokenization?, Explainable AI in Education, AI and carbon footprint</p>
-                        <a href="https://youthxai.org" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-500 hover:underline">
+                        <a href="https://youthxai.org" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-400 hover:underline">
                             youthxai.org <i data-lucide="external-link" class="w-3 h-3"></i>
                         </a>
                     </div>
 
-                    <div class="glass-card bg-white/60 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-3">
+                    <div class="glass-card bg-white/70 dark:bg-[#141b24]/60 p-5 rounded-2xl border border-slate-300/80 dark:border-slate-800 space-y-3">
                         <div>
                             <h4 class="font-bold text-slate-900 dark:text-white">Editorial Team — Aurora Publication</h4>
                             <span class="text-xs text-brand-600 dark:text-brand-400 font-semibold">Sep 2025 – Present</span>
                         </div>
                         <p class="text-sm text-slate-600 dark:text-slate-400" data-en="Research-backed articles on AI, innovations and new technologies with a dedicated focus on AI for social impact." data-fa="نگارش مقالات پژوهش‌محور در حوزه هوش مصنوعی و فناوری‌های نوین با تمرکز ویژه بر تأثیرات اجتماعی هوش مصنوعی.">Research-backed articles on AI, innovations and new technologies with a dedicated focus on AI for social impact.</p>
-                        <a href="https://t.me/AURORASRBIAU" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-500 hover:underline">
+                        <a href="https://t.me/AURORASRBIAU" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-400 hover:underline">
                             t.me/AURORASRBIAU <i data-lucide="external-link" class="w-3 h-3"></i>
                         </a>
                     </div>
@@ -223,35 +251,35 @@
             <!-- Certifications -->
             <div>
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                    <i data-lucide="badge-check" class="text-brand-500 w-5 h-5"></i>
+                    <i data-lucide="badge-check" class="text-brand-400 w-5 h-5"></i>
                     <span data-en="Certifications" data-fa="گواهی‌نامه‌ها">Certifications</span>
                 </h3>
                 <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs font-medium">
-                    <div class="p-3 bg-white/50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">Global MOOC on Ethics of AI — UNESCO × Coursera</div>
-                    <div class="p-3 bg-white/50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">Data Science Project-Based Learning — Coursera</div>
-                    <div class="p-3 bg-white/50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">Data Science & Analytics — HP LIFE</div>
-                    <div class="p-3 bg-white/50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">Data Cleaning — Kaggle</div>
-                    <div class="p-3 bg-white/50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">SQL (Advanced) — HackerRank</div>
-                    <div class="p-3 bg-white/50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">Agents and Workflows — OpenAI</div>
-                    <div class="p-3 bg-white/50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">AI for Research and Beyond — youthxAI</div>
-                    <div class="p-3 bg-white/50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">AI for Social Impact — ADB Institute</div>
+                    <div class="p-3 bg-white/60 dark:bg-[#141b24]/50 rounded-xl border border-slate-300/80 dark:border-slate-800">Global MOOC on Ethics of AI — UNESCO × Coursera</div>
+                    <div class="p-3 bg-white/60 dark:bg-[#141b24]/50 rounded-xl border border-slate-300/80 dark:border-slate-800">Data Science Project-Based Learning — Coursera</div>
+                    <div class="p-3 bg-white/60 dark:bg-[#141b24]/50 rounded-xl border border-slate-300/80 dark:border-slate-800">Data Science & Analytics — HP LIFE</div>
+                    <div class="p-3 bg-white/60 dark:bg-[#141b24]/50 rounded-xl border border-slate-300/80 dark:border-slate-800">Data Cleaning — Kaggle</div>
+                    <div class="p-3 bg-white/60 dark:bg-[#141b24]/50 rounded-xl border border-slate-300/80 dark:border-slate-800">SQL (Advanced) — HackerRank</div>
+                    <div class="p-3 bg-white/60 dark:bg-[#141b24]/50 rounded-xl border border-slate-300/80 dark:border-slate-800">Agents and Workflows — OpenAI</div>
+                    <div class="p-3 bg-white/60 dark:bg-[#141b24]/50 rounded-xl border border-slate-300/80 dark:border-slate-800">AI for Research and Beyond — youthxAI</div>
+                    <div class="p-3 bg-white/60 dark:bg-[#141b24]/50 rounded-xl border border-slate-300/80 dark:border-slate-800">AI for Social Impact — ADB Institute</div>
                 </div>
             </div>
 
             <!-- Honors & Achievements -->
             <div>
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                    <i data-lucide="trophy" class="text-amber-500 w-5 h-5"></i>
+                    <i data-lucide="trophy" class="text-amber-400 w-5 h-5"></i>
                     <span data-en="Honors & Achievements" data-fa="افتخارات و جوایز">Honors & Achievements</span>
                 </h3>
-                <div class="p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-brand-500/10 to-transparent border border-amber-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div class="p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-slate-700/10 to-transparent border border-amber-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                     <div class="flex items-center gap-4">
-                        <div class="p-3 bg-amber-500/20 text-amber-500 rounded-xl shrink-0">
+                        <div class="p-3 bg-amber-500/20 text-amber-400 rounded-xl shrink-0">
                             <i data-lucide="award" class="w-6 h-6"></i>
                         </div>
                         <div>
                             <div class="flex items-center gap-2 flex-wrap">
-                                <a href="https://lnkd.in/p/eKiJiJXC" target="_blank" rel="noopener noreferrer" class="font-bold text-slate-900 dark:text-white hover:text-brand-500 hover:underline flex items-center gap-1">
+                                <a href="https://lnkd.in/p/eKiJiJXC" target="_blank" rel="noopener noreferrer" class="font-bold text-slate-900 dark:text-white hover:text-brand-400 hover:underline flex items-center gap-1">
                                     <span data-en="1st Place Winner" data-fa="رتبه ۱ برنده مسابقه">1st Place Winner</span>
                                     <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                                 </a>
@@ -260,7 +288,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="https://github.com/sarinanemati/studybuild-challenge-" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-slate-900 text-white dark:bg-slate-800 text-xs font-semibold flex items-center gap-1.5 hover:bg-brand-500 transition-all">
+                    <a href="https://github.com/sarinanemati/studybuild-challenge-" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-slate-900 text-white dark:bg-[#1e2631] dark:border dark:border-slate-700 text-xs font-semibold flex items-center gap-1.5 hover:bg-brand-500 transition-all">
                         <i data-lucide="github" class="w-3.5 h-3.5"></i>
                         <span>GitHub</span>
                     </a>
@@ -270,9 +298,9 @@
 
         <!-- WORK (PROJECTS) SECTION -->
         <section id="work" class="space-y-12">
-            <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+            <div class="border-b border-slate-300 dark:border-slate-800 pb-4">
                 <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-                    <i data-lucide="folder-git-2" class="text-brand-500 w-6 h-6"></i>
+                    <i data-lucide="folder-git-2" class="text-brand-400 w-6 h-6"></i>
                     <span data-en="Projects" data-fa="پروژه‌ها">Projects</span>
                 </h2>
             </div>
@@ -280,10 +308,9 @@
             <div class="grid md:grid-cols-2 gap-8">
                 
                 <!-- Project 1: Persona2Product -->
-                <div class="glass-card bg-white/60 dark:bg-slate-900/60 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col justify-between hover:border-brand-500/50 transition-all group">
+                <div class="glass-card bg-white/70 dark:bg-[#141b24]/60 rounded-2xl border border-slate-300/80 dark:border-slate-800 overflow-hidden flex flex-col justify-between hover:border-brand-400/50 transition-all group">
                     <div>
-                        <!-- Project Image with Fallback -->
-                        <div class="relative overflow-hidden aspect-video bg-slate-200 dark:bg-slate-800">
+                        <div class="relative overflow-hidden aspect-video bg-slate-200 dark:bg-[#1e2631]">
                             <img src="https://sarinanemati.github.io/images/persona2product.jpg" 
                                  alt="Preview of Persona2Product recommendation app" 
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -291,17 +318,16 @@
                         </div>
 
                         <div class="p-6 space-y-4">
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors" data-en="Recommendation System Based on Your Persona" data-fa="سیستم توصیه‌گر هوشمند بر پایه پرسونای کاربر">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-400 transition-colors" data-en="Recommendation System Based on Your Persona" data-fa="سیستم توصیه‌گر هوشمند بر پایه پرسونای کاربر">
                                 Recommendation System Based on Your Persona
                             </h3>
 
-                            <!-- Project Links -->
                             <div class="flex flex-wrap items-center gap-3 text-xs font-semibold">
                                 <a href="https://persona2appuct-ypa6bivgxlz4rh36tnrtbv.streamlit.app/" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 flex items-center gap-1.5 transition-all">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                                     <span>Live Demo (Streamlit)</span>
                                 </a>
-                                <a href="https://github.com/sarinanemati/persona2product" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-500 flex items-center gap-1.5 transition-all">
+                                <a href="https://github.com/sarinanemati/persona2product" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-200/60 dark:bg-[#1e2631] text-slate-700 dark:text-slate-300 hover:text-brand-400 flex items-center gap-1.5 transition-all">
                                     <i data-lucide="github" class="w-3.5 h-3.5"></i>
                                     <span>GitHub Repository</span>
                                 </a>
@@ -313,15 +339,14 @@
                                 Persona2Product is a context-aware recommendation engine built with Streamlit. It moves beyond standard collaborative filtering by matching users to products based on their shopping persona (e.g., Brand-Oriented, Budget-Conscious, Performance-Focused). The system leverages Clustering and an integrated Reinforcement Learning (RL) loop to refine recommendations based on user interactions (likes), creating a personalized and adaptive shopping experience.
                             </p>
 
-                            <!-- Project Challenges -->
-                            <div class="bg-slate-100/70 dark:bg-slate-800/50 p-4 rounded-xl space-y-2.5 text-xs text-slate-600 dark:text-slate-300">
+                            <div class="bg-slate-100/80 dark:bg-[#1e2631]/60 p-4 rounded-xl space-y-2.5 text-xs text-slate-600 dark:text-slate-300">
                                 <span class="font-bold text-slate-900 dark:text-white block" data-en="Project Challenges:" data-fa="چالش‌های پروژه:">Project Challenges:</span>
                                 <div class="flex items-start gap-2">
-                                    <i data-lucide="check" class="w-3.5 h-3.5 text-brand-500 mt-0.5 shrink-0"></i>
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 mt-0.5 shrink-0"></i>
                                     <span data-en="Faced with a lack of pre-existing datasets for user shopping personas, I engineered a custom Web Scraper to extract raw product and user-interaction data from scratch." data-fa="طراحی وب‌اسکرپر سفارشی برای استخراج دیتاست خام محصولات و رفتارهای کاربران به دلیل نبود دیتای آماده.">Faced with a lack of pre-existing datasets for user shopping personas, I engineered a custom Web Scraper to extract raw product and user-interaction data from scratch.</span>
                                 </div>
                                 <div class="flex items-start gap-2">
-                                    <i data-lucide="check" class="w-3.5 h-3.5 text-brand-500 mt-0.5 shrink-0"></i>
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-brand-400 mt-0.5 shrink-0"></i>
                                     <span data-en="Applied Unsupervised Clustering to automatically segment users and map them into distinct behavioral archetypes, laying the foundation for the RL engine." data-fa="اعمال خوشه‌بندی بدون نظارت برای بخش‌بندی خودکار کاربران و نگاشت آرکتایپ‌های رفتاری به عنوان ورودی RL.">Applied Unsupervised Clustering to automatically segment users and map them into distinct behavioral archetypes, laying the foundation for the RL engine.</span>
                                 </div>
                             </div>
@@ -329,19 +354,18 @@
                     </div>
 
                     <div class="px-6 pb-6 pt-2 flex flex-wrap gap-1.5 font-mono text-[11px]">
-                        <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md">Python</span>
-                        <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md">Streamlit</span>
-                        <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md">Clustering</span>
-                        <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md">Reinforcement Learning</span>
-                        <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md">Web Scraping</span>
+                        <span class="px-2.5 py-1 bg-slate-200/70 dark:bg-[#1e2631] text-slate-700 dark:text-slate-300 rounded-md">Python</span>
+                        <span class="px-2.5 py-1 bg-slate-200/70 dark:bg-[#1e2631] text-slate-700 dark:text-slate-300 rounded-md">Streamlit</span>
+                        <span class="px-2.5 py-1 bg-slate-200/70 dark:bg-[#1e2631] text-slate-700 dark:text-slate-300 rounded-md">Clustering</span>
+                        <span class="px-2.5 py-1 bg-slate-200/70 dark:bg-[#1e2631] text-slate-700 dark:text-slate-300 rounded-md">Reinforcement Learning</span>
+                        <span class="px-2.5 py-1 bg-slate-200/70 dark:bg-[#1e2631] text-slate-700 dark:text-slate-300 rounded-md">Web Scraping</span>
                     </div>
                 </div>
 
                 <!-- Project 2: Healthcare Dashboard -->
-                <div class="glass-card bg-white/60 dark:bg-slate-900/60 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col justify-between hover:border-brand-500/50 transition-all group">
+                <div class="glass-card bg-white/70 dark:bg-[#141b24]/60 rounded-2xl border border-slate-300/80 dark:border-slate-800 overflow-hidden flex flex-col justify-between hover:border-brand-400/50 transition-all group">
                     <div>
-                        <!-- Project Image with Fallback -->
-                        <div class="relative overflow-hidden aspect-video bg-slate-200 dark:bg-slate-800">
+                        <div class="relative overflow-hidden aspect-video bg-slate-200 dark:bg-[#1e2631]">
                             <img src="https://sarinanemati.github.io/images/healthcare-dashboard.jpg" 
                                  alt="Preview of the Healthcare Analytics Dashboard" 
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -349,18 +373,17 @@
                         </div>
 
                         <div class="p-6 space-y-4">
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors" data-en="Healthcare Dashboard" data-fa="داشبورد تحلیلی مدیریت سلامت">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-brand-400 transition-colors" data-en="Healthcare Dashboard" data-fa="داشبورد تحلیلی مدیریت سلامت">
                                 Healthcare Dashboard
                             </h3>
                             <p class="text-xs text-brand-600 dark:text-brand-400 font-semibold" data-en="An interactive Streamlit dashboard for analyzing healthcare data" data-fa="داشبورد تعاملی استریم‌لیت جهت تحلیل جامع داده‌های بیمارستانی">An interactive Streamlit dashboard for analyzing healthcare data</p>
 
-                            <!-- Project Links -->
                             <div class="flex flex-wrap items-center gap-2 text-xs font-semibold">
                                 <a href="https://healthcare-dashboard-wf6sjmrhdgdhqfw6q58ay4.streamlit.app/" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 flex items-center gap-1.5 transition-all">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                                     <span>Live Demo</span>
                                 </a>
-                                <a href="https://github.com/sarinanemati/healthcare-dashboard" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-500 flex items-center gap-1.5 transition-all">
+                                <a href="https://github.com/sarinanemati/healthcare-dashboard" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-200/60 dark:bg-[#1e2631] text-slate-700 dark:text-slate-300 hover:text-brand-400 flex items-center gap-1.5 transition-all">
                                     <i data-lucide="github" class="w-3.5 h-3.5"></i>
                                     <span>GitHub</span>
                                 </a>
@@ -379,10 +402,10 @@
                     </div>
 
                     <div class="px-6 pb-6 pt-2 flex flex-wrap gap-1.5 font-mono text-[11px]">
-                        <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md">pandas</span>
-                        <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md">streamlit</span>
-                        <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md">plotly</span>
-                        <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md">Healthcare Analytics</span>
+                        <span class="px-2.5 py-1 bg-slate-200/70 dark:bg-[#1e2631] text-slate-700 dark:text-slate-300 rounded-md">pandas</span>
+                        <span class="px-2.5 py-1 bg-slate-200/70 dark:bg-[#1e2631] text-slate-700 dark:text-slate-300 rounded-md">streamlit</span>
+                        <span class="px-2.5 py-1 bg-slate-200/70 dark:bg-[#1e2631] text-slate-700 dark:text-slate-300 rounded-md">plotly</span>
+                        <span class="px-2.5 py-1 bg-slate-200/70 dark:bg-[#1e2631] text-slate-700 dark:text-slate-300 rounded-md">Healthcare Analytics</span>
                     </div>
                 </div>
 
@@ -390,10 +413,10 @@
 
             <!-- Other Projects Section -->
             <div class="pt-4">
-                <h4 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4" data-en="Other Projects" data-fa="سایر پروژه‌ها">Other Projects</h4>
+                <h4 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4" data-en="Other Projects" data-fa="سایر پروژه‌ها">Other Projects</h4>
                 <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3.5">
                     
-                    <div class="p-4 rounded-xl glass-card bg-white/40 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                    <div class="p-4 rounded-xl glass-card bg-white/50 dark:bg-[#141b24]/40 border border-slate-300/80 dark:border-slate-800 flex items-center justify-between">
                         <div>
                             <span class="font-bold block text-slate-900 dark:text-white text-sm">Churn Prediction</span>
                             <span class="text-xs text-brand-600 dark:text-brand-400 font-semibold">Coursera Score: 100%</span>
@@ -401,44 +424,44 @@
                         <span class="px-2 py-0.5 text-[10px] bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 rounded">100%</span>
                     </div>
 
-                    <a href="https://github.com/sarinanemati/Logistics-QC-Operations-Performance-Analysis" target="_blank" class="p-4 rounded-xl glass-card bg-white/40 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 flex items-center justify-between hover:border-brand-500/50 transition-all group">
+                    <a href="https://github.com/sarinanemati/Logistics-QC-Operations-Performance-Analysis" target="_blank" class="p-4 rounded-xl glass-card bg-white/50 dark:bg-[#141b24]/40 border border-slate-300/80 dark:border-slate-800 flex items-center justify-between hover:border-brand-400/50 transition-all group">
                         <div>
-                            <span class="font-bold block text-slate-900 dark:text-white text-sm group-hover:text-brand-500 transition-colors">Logistic QC Operations</span>
+                            <span class="font-bold block text-slate-900 dark:text-white text-sm group-hover:text-brand-400 transition-colors">Logistic QC Operations</span>
                             <span class="text-xs text-slate-500">Performance Analysis</span>
                         </div>
-                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 group-hover:text-brand-400 transition-colors"></i>
                     </a>
 
-                    <a href="https://github.com/sarinanemati/Breast-Cancer-Image-Classifier" target="_blank" class="p-4 rounded-xl glass-card bg-white/40 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 flex items-center justify-between hover:border-brand-500/50 transition-all group">
+                    <a href="https://github.com/sarinanemati/Breast-Cancer-Image-Classifier" target="_blank" class="p-4 rounded-xl glass-card bg-white/50 dark:bg-[#141b24]/40 border border-slate-300/80 dark:border-slate-800 flex items-center justify-between hover:border-brand-400/50 transition-all group">
                         <div>
-                            <span class="font-bold block text-slate-900 dark:text-white text-sm group-hover:text-brand-500 transition-colors">Breast Cancer Classifier</span>
+                            <span class="font-bold block text-slate-900 dark:text-white text-sm group-hover:text-brand-400 transition-colors">Breast Cancer Classifier</span>
                             <span class="text-xs text-slate-500">Image Classification</span>
                         </div>
-                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 group-hover:text-brand-400 transition-colors"></i>
                     </a>
 
-                    <a href="https://github.com/sarinanemati/machine-learning-projects" target="_blank" class="p-4 rounded-xl glass-card bg-white/40 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 flex items-center justify-between hover:border-brand-500/50 transition-all group">
+                    <a href="https://github.com/sarinanemati/machine-learning-projects" target="_blank" class="p-4 rounded-xl glass-card bg-white/50 dark:bg-[#141b24]/40 border border-slate-300/80 dark:border-slate-800 flex items-center justify-between hover:border-brand-400/50 transition-all group">
                         <div>
-                            <span class="font-bold block text-slate-900 dark:text-white text-sm group-hover:text-brand-500 transition-colors">House Price Prediction</span>
+                            <span class="font-bold block text-slate-900 dark:text-white text-sm group-hover:text-brand-400 transition-colors">House Price Prediction</span>
                             <span class="text-xs text-slate-500">Regression ML</span>
                         </div>
-                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 group-hover:text-brand-400 transition-colors"></i>
                     </a>
 
-                    <a href="https://github.com/sarinanemati/machine-learning-projects" target="_blank" class="p-4 rounded-xl glass-card bg-white/40 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 flex items-center justify-between hover:border-brand-500/50 transition-all group">
+                    <a href="https://github.com/sarinanemati/machine-learning-projects" target="_blank" class="p-4 rounded-xl glass-card bg-white/50 dark:bg-[#141b24]/40 border border-slate-300/80 dark:border-slate-800 flex items-center justify-between hover:border-brand-400/50 transition-all group">
                         <div>
-                            <span class="font-bold block text-slate-900 dark:text-white text-sm group-hover:text-brand-500 transition-colors">Digit Detection (MNIST)</span>
+                            <span class="font-bold block text-slate-900 dark:text-white text-sm group-hover:text-brand-400 transition-colors">Digit Detection (MNIST)</span>
                             <span class="text-xs text-slate-500">Computer Vision</span>
                         </div>
-                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 group-hover:text-brand-400 transition-colors"></i>
                     </a>
 
-                    <a href="https://github.com/sarinanemati/wikipedia-research-agent" target="_blank" class="p-4 rounded-xl glass-card bg-white/40 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 flex items-center justify-between hover:border-brand-500/50 transition-all group">
+                    <a href="https://github.com/sarinanemati/wikipedia-research-agent" target="_blank" class="p-4 rounded-xl glass-card bg-white/50 dark:bg-[#141b24]/40 border border-slate-300/80 dark:border-slate-800 flex items-center justify-between hover:border-brand-400/50 transition-all group">
                         <div>
-                            <span class="font-bold block text-slate-900 dark:text-white text-sm group-hover:text-brand-500 transition-colors">Wikipedia Research Agent</span>
+                            <span class="font-bold block text-slate-900 dark:text-white text-sm group-hover:text-brand-400 transition-colors">Wikipedia Research Agent</span>
                             <span class="text-xs text-slate-500">AI Agents</span>
                         </div>
-                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-400 group-hover:text-brand-400 transition-colors"></i>
                     </a>
 
                 </div>
@@ -447,15 +470,15 @@
 
         <!-- RESEARCH & WRITING SECTION -->
         <section id="research" class="space-y-8">
-            <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+            <div class="border-b border-slate-300 dark:border-slate-800 pb-4">
                 <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-                    <i data-lucide="book-open" class="text-brand-500 w-6 h-6"></i>
+                    <i data-lucide="book-open" class="text-brand-400 w-6 h-6"></i>
                     <span data-en="Research & Writing" data-fa="مقالات علمی و یادداشت‌ها">Research & Writing</span>
                 </h2>
             </div>
 
             <!-- Published Paper -->
-            <div class="p-6 rounded-2xl bg-gradient-to-br from-brand-500/10 via-slate-900/40 to-slate-900/20 border border-brand-500/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="p-6 rounded-2xl bg-gradient-to-br from-[#1e2631]/80 via-[#141b24]/60 to-[#0b1017] border border-slate-700/60 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-md">
                 <div>
                     <span class="px-2.5 py-0.5 text-[11px] font-bold rounded-full bg-brand-500 text-white uppercase tracking-wider mb-2 inline-block">Journal Publication</span>
                     <h3 class="text-xl font-bold text-slate-900 dark:text-white">Explainable AI: A Bridge Between Black Box and Trust</h3>
@@ -474,30 +497,30 @@
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4" data-en="Articles & Blog Posts" data-fa="مقالات وبلاگ و یادداشت‌ها">Articles & Blog Posts</h3>
                 <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                     
-                    <a href="https://medium.com/@sarinanemati/can-ai-save-dying-languages-exploring-the-high-stakes-battle-to-revive-endangered-tongues-16b3b5085ffa" target="_blank" class="p-5 rounded-xl glass-card bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 space-y-2.5 hover:border-brand-500/50 transition-all group block">
+                    <a href="https://medium.com/@sarinanemati/can-ai-save-dying-languages-exploring-the-high-stakes-battle-to-revive-endangered-tongues-16b3b5085ffa" target="_blank" class="p-5 rounded-xl glass-card bg-white/60 dark:bg-[#141b24]/50 border border-slate-300/80 dark:border-slate-800 space-y-2.5 hover:border-brand-400/50 transition-all group block">
                         <div class="flex justify-between items-center">
-                            <span class="text-[11px] font-mono text-brand-500 font-semibold">Medium Article</span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                            <span class="text-[11px] font-mono text-brand-400 font-semibold">Medium Article</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-brand-400 transition-colors"></i>
                         </div>
-                        <h4 class="font-bold text-slate-900 dark:text-white text-sm group-hover:text-brand-500 transition-colors">Can AI Save Dying Languages?</h4>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm group-hover:text-brand-400 transition-colors">Can AI Save Dying Languages?</h4>
                         <p class="text-xs text-slate-500 dark:text-slate-400">Exploring the high-stakes battle to revive endangered tongues.</p>
                     </a>
 
-                    <a href="https://medium.com/@youthxai/what-is-tokenization-all-you-need-to-know-f7f44af00c7a" target="_blank" class="p-5 rounded-xl glass-card bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 space-y-2.5 hover:border-brand-500/50 transition-all group block">
+                    <a href="https://medium.com/@youthxai/what-is-tokenization-all-you-need-to-know-f7f44af00c7a" target="_blank" class="p-5 rounded-xl glass-card bg-white/60 dark:bg-[#141b24]/50 border border-slate-300/80 dark:border-slate-800 space-y-2.5 hover:border-brand-400/50 transition-all group block">
                         <div class="flex justify-between items-center">
-                            <span class="text-[11px] font-mono text-brand-500 font-semibold">youthxAI • Medium</span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                            <span class="text-[11px] font-mono text-brand-400 font-semibold">youthxAI • Medium</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-brand-400 transition-colors"></i>
                         </div>
-                        <h4 class="font-bold text-slate-900 dark:text-white text-sm group-hover:text-brand-500 transition-colors">What is Tokenization: All You Need to Know</h4>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm group-hover:text-brand-400 transition-colors">What is Tokenization: All You Need to Know</h4>
                         <p class="text-xs text-slate-500 dark:text-slate-400">Deep-dive into fundamental text tokenization algorithms in NLP.</p>
                     </a>
 
-                    <a href="https://medium.com/@youthxai/ai-and-carbon-footprint-climate-solution-or-emerging-environmental-risk-f98860d81ea0" target="_blank" class="p-5 rounded-xl glass-card bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 space-y-2.5 hover:border-brand-500/50 transition-all group block">
+                    <a href="https://medium.com/@youthxai/ai-and-carbon-footprint-climate-solution-or-emerging-environmental-risk-f98860d81ea0" target="_blank" class="p-5 rounded-xl glass-card bg-white/60 dark:bg-[#141b24]/50 border border-slate-300/80 dark:border-slate-800 space-y-2.5 hover:border-brand-400/50 transition-all group block">
                         <div class="flex justify-between items-center">
-                            <span class="text-[11px] font-mono text-brand-500 font-semibold">youthxAI • Medium</span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-brand-500 transition-colors"></i>
+                            <span class="text-[11px] font-mono text-brand-400 font-semibold">youthxAI • Medium</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-brand-400 transition-colors"></i>
                         </div>
-                        <h4 class="font-bold text-slate-900 dark:text-white text-sm group-hover:text-brand-500 transition-colors">AI and Carbon Footprint: Climate Solution or Risk?</h4>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm group-hover:text-brand-400 transition-colors">AI and Carbon Footprint: Climate Solution or Risk?</h4>
                         <p class="text-xs text-slate-500 dark:text-slate-400">Examining energy consumption and green AI initiatives.</p>
                     </a>
 
@@ -514,9 +537,9 @@
                 </p>
 
                 <!-- Email Pill with One-Click Copy -->
-                <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shadow-sm mt-3">
-                    <a id="email-text" href="mailto:sarinanematilay@gmail.com" class="text-sm font-mono text-slate-800 dark:text-slate-200 hover:text-brand-500">sarinanematilay@gmail.com</a>
-                    <button onclick="copyEmail()" class="text-brand-500 hover:text-brand-600 text-xs font-bold flex items-center gap-1 pl-2 border-l border-slate-300 dark:border-slate-700" title="Copy to clipboard">
+                <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white dark:bg-[#141b24] border border-slate-300 dark:border-slate-700 shadow-sm mt-3">
+                    <a id="email-text" href="mailto:sarinanematilay@gmail.com" class="text-sm font-mono text-slate-800 dark:text-slate-200 hover:text-brand-400">sarinanematilay@gmail.com</a>
+                    <button onclick="copyEmail()" class="text-brand-400 hover:text-brand-500 text-xs font-bold flex items-center gap-1 pl-2 border-l border-slate-300 dark:border-slate-700" title="Copy to clipboard">
                         <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                         <span id="copy-btn-text" data-en="Copy" data-fa="کپی">Copy</span>
                     </button>
@@ -524,13 +547,13 @@
 
                 <!-- Social Icons -->
                 <div class="flex justify-center gap-4 mt-6">
-                    <a href="https://github.com/sarinanemati" target="_blank" class="p-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-500 hover:border-brand-500 transition-all shadow-sm" title="GitHub">
+                    <a href="https://github.com/sarinanemati" target="_blank" class="p-3 rounded-full bg-white dark:bg-[#141b24] border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-400 hover:border-brand-400 transition-all shadow-sm" title="GitHub">
                         <i data-lucide="github" class="w-5 h-5"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/sarina-nemati-94b19242a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="p-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-500 hover:border-brand-500 transition-all shadow-sm" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/sarina-nemati-94b19242a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="p-3 rounded-full bg-white dark:bg-[#141b24] border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-400 hover:border-brand-400 transition-all shadow-sm" title="LinkedIn">
                         <i data-lucide="linkedin" class="w-5 h-5"></i>
                     </a>
-                    <a href="https://t.me/sarinantl" target="_blank" class="p-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-500 hover:border-brand-500 transition-all shadow-sm" title="Telegram">
+                    <a href="https://t.me/sarinantl" target="_blank" class="p-3 rounded-full bg-white dark:bg-[#141b24] border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-400 hover:border-brand-400 transition-all shadow-sm" title="Telegram">
                         <i data-lucide="send" class="w-5 h-5"></i>
                     </a>
                 </div>
@@ -540,7 +563,7 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="border-t border-slate-200 dark:border-slate-900 py-8 text-center text-xs text-slate-500">
+    <footer class="border-t border-slate-300 dark:border-slate-800/80 py-8 text-center text-xs text-slate-500">
         <p>© 2026 Sarina Nemati</p>
     </footer>
 
@@ -549,7 +572,29 @@
         // Init Lucide Icons
         lucide.createIcons();
 
-        // 1. Theme Switcher (Dark / Light)
+        // 1. Typewriter Effect
+        let currentLang = 'en';
+        const typewriterEl = document.getElementById('typewriter-text');
+        let typeTimeout;
+
+        function runTypewriter() {
+            clearTimeout(typeTimeout);
+            const targetPhrase = currentLang === 'en' ? "Hello, I'm Sarina" : "سلام، من سارینا هستم";
+            typewriterEl.textContent = "";
+            let charIndex = 0;
+
+            function step() {
+                if (charIndex < targetPhrase.length) {
+                    typewriterEl.textContent += targetPhrase.charAt(charIndex);
+                    charIndex++;
+                    typeTimeout = setTimeout(step, 110);
+                }
+            }
+            step();
+        }
+        window.addEventListener('DOMContentLoaded', runTypewriter);
+
+        // 2. Theme Switcher (Dark / Light)
         function toggleTheme() {
             const html = document.documentElement;
             const themeIcon = document.getElementById('theme-icon');
@@ -576,8 +621,7 @@
             lucide.createIcons();
         }
 
-        // 2. Language Switcher (EN / FA)
-        let currentLang = 'en';
+        // 3. Language Switcher (EN / FA)
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'fa' : 'en';
             document.body.dir = currentLang === 'fa' ? 'rtl' : 'ltr';
@@ -586,9 +630,12 @@
             document.querySelectorAll('[data-en]').forEach(element => {
                 element.innerText = element.getAttribute(`data-${currentLang}`);
             });
+
+            // Re-trigger typewriter for the chosen language
+            runTypewriter();
         }
 
-        // 3. Scrollspy Navbar Tracking
+        // 4. Scrollspy Navbar Tracking
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
@@ -609,7 +656,7 @@
             });
         });
 
-        // 4. Copy Email Action
+        // 5. Copy Email Action
         function copyEmail() {
             const email = document.getElementById('email-text').innerText;
             navigator.clipboard.writeText(email);
