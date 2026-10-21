@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sarina Nemati | Data Science Portfolio</title>
+<meta name="description" content="Data science portfolio of Sarina Nemati: interpretable and scalable machine learning, XAI, and AI writing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --panel:#050805; --lift:#070b07;
+  --g:#39ff7a; --g2:#2bbf5c; --g3:#1c7a3c;
+  --sage:#5f8d68; --ink:#eafff1; --amber:#ffd24a; --cyan:#5cf6ff;
+  --line:#143614; --line2:#1f4d1f;
+  --glow:0 0 8px rgba(57,255,122,.45),0 0 24px rgba(57,255,122,.18);
+  --mono:"JetBrains Mono","IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{
+  background:
+    radial-gradient(900px 600px at 100% 0%,rgba(57,255,122,.08),transparent 60%),
+    radial-gradient(700px 600px at 0% 30%,rgba(57,255,122,.05),transparent 60%),
+    var(--bg);
+  color:var(--sage);font-family:var(--mono);font-size:14px;line-height:1.7;
+  padding:40px 20px 60px;min-height:100vh;
+}
+::selection{background:rgba(57,255,122,.30);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--g);outline-offset:3px}
+.crt{position:fixed;inset:0;pointer-events:none;z-index:999;mix-blend-mode:multiply;opacity:.5;
+  background:repeating-linear-gradient(to bottom,transparent 0,transparent 2px,rgba(0,0,0,.16) 3px,transparent 4px);
+  box-shadow:inset 0 0 160px rgba(0,0,0,.55)}
+.glow{text-shadow:var(--glow)}
+.glow-soft{text-shadow:0 0 8px rgba(57,255,122,.3)}
+.hl{color:var(--g);text-shadow:0 0 8px rgba(57,255,122,.3)}
+
+/* window */
+.win{max-width:1120px;margin:0 auto;background:var(--panel);border:1px solid var(--line2);border-radius:8px;
+  box-shadow:0 0 60px rgba(57,255,122,.07),0 0 0 1px #000}
+.bar{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:12px 18px;background:var(--lift);
+  border-bottom:1px solid var(--line);border-radius:8px 8px 0 0}
+.dots{display:flex;gap:7px}
+.dots i{width:12px;height:12px;border-radius:50%;display:block}
+.dots i:nth-child(1){background:#ff5f56}.dots i:nth-child(2){background:#ffbd2e}.dots i:nth-child(3){background:#27c93f}
+.path{font-size:13px}.path b{color:var(--ink);font-weight:500}.path span{color:var(--sage)}
+.nav{margin-left:auto;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.nav a{font-size:13px;color:var(--sage);transition:color .15s}
+.nav a:hover{color:var(--g);text-shadow:var(--glow)}
+.status{display:flex;align-items:center;gap:8px;color:var(--amber);font-size:12px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber);animation:blink 1.6s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.body{padding:44px 40px 28px}
+section{padding:0 0 56px}
+section+section{padding-top:44px;border-top:0;background:linear-gradient(90deg,transparent,var(--line2),transparent) top/100% 1px no-repeat}
+.cmd{color:var(--ink);margin-bottom:22px;font-size:14px}
+.cmd .p{color:var(--cyan)}
+.cmd .c{color:var(--sage)}
+.cursor{display:inline-block;width:.6em;height:1.05em;background:var(--g);vertical-align:text-bottom;margin-left:3px;
+  box-shadow:var(--glow);animation:blink 1.1s step-end infinite}
+h2{font-size:26px;font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-bottom:6px}
+h2 small{font-size:13px;font-weight:400;color:var(--g3)}
+.lbl{color:var(--g2);letter-spacing:.14em;font-size:12px;margin-bottom:6px}
+
+/* hero */
+.name{font-size:60px !important;line-height:1.05;font-weight:800;color:var(--ink);letter-spacing:-.03em;
+  text-shadow:0 0 10px rgba(57,255,122,.55),0 0 34px rgba(57,255,122,.25);margin:6px 0 18px}
+.name .us{color:var(--g)}
+.role{color:var(--g);font-size:17px;margin-bottom:14px}
+.role::before{content:"> ";color:var(--sage)}
+.intro{max-width:640px;margin-bottom:22px}
+.checks{display:flex;flex-wrap:wrap;gap:8px 26px;margin-bottom:28px;font-size:13px}
+.checks span::before{content:"[x] ";color:var(--g)}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:14px;font-weight:700;padding:11px 20px;border-radius:4px;cursor:pointer;
+  border:1px solid var(--g);transition:transform .15s,box-shadow .15s,background .15s}
+.btn.solid{background:var(--g);color:#001a08;box-shadow:0 0 18px rgba(57,255,122,.45)}
+.btn.solid:hover{box-shadow:0 0 28px rgba(57,255,122,.7);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--g);text-shadow:var(--glow)}
+.btn.ghost:hover{background:rgba(57,255,122,.08)}
+
+/* neofetch */
+.fetch{display:grid;grid-template-columns:230px 1fr;gap:34px;background:var(--lift);border:1px solid var(--line);
+  border-radius:6px;padding:26px 28px}
+.avatar{color:var(--g);text-shadow:var(--glow);font-size:12px;line-height:1.15;white-space:pre}
+.avatar-l{margin-top:12px;color:var(--sage);font-size:12px}
+.ttl{color:var(--ink);font-weight:700;margin-bottom:10px}
+dl{display:grid;grid-template-columns:90px 1fr;gap:4px 14px}
+dt{color:var(--g)}dd{color:var(--sage)}
+dd.av{color:var(--amber);text-shadow:0 0 8px rgba(255,210,74,.5)}
+.sw{display:flex;gap:6px;margin-top:18px}
+.sw i{width:26px;height:12px;border-radius:2px;display:block}
+
+/* about grid */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.box{background:var(--lift);border:1px solid var(--line);border-radius:6px;padding:22px 24px}
+.box h3{font-size:14px;color:var(--g);font-weight:700;margin-bottom:12px;text-shadow:0 0 8px rgba(57,255,122,.3)}
+.box h3::before{content:"$ ";color:var(--sage);text-shadow:none}
+.item{margin-bottom:14px}.item:last-child{margin-bottom:0}
+.item b{display:block;color:var(--ink);font-weight:500}
+.item em{font-style:normal;color:var(--g3);font-size:12px}
+.item p{font-size:13px}
+.item a{color:var(--g);border-bottom:1px dashed var(--g3)}
+.item a:hover{text-shadow:var(--glow)}
+.sk{margin-bottom:10px;font-size:13px}
+.sk b{display:block;color:var(--ink);font-weight:500}
+.sk b::before{content:"[x] ";color:var(--g)}
+ul.plain{list-style:none;font-size:13px}
+ul.plain li::before{content:"[x] ";color:var(--g)}
+
+/* projects */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px 24px;display:flex;flex-direction:column;
+  transition:transform .18s,box-shadow .18s,border-color .18s}
+.card:hover{transform:translateY(-3px);border-color:var(--line2);box-shadow:0 0 28px rgba(57,255,122,.14)}
+.ctop{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.fn{color:var(--g);font-weight:700;font-size:17px;text-shadow:var(--glow)}
+.fn s{text-decoration:none;color:var(--g3)}
+.perm{color:var(--g3);font-size:12px}
+.card p{font-size:13px;margin-bottom:12px}
+.card ul{list-style:none;font-size:13px;margin-bottom:14px}
+.card ul li::before{content:"[x] ";color:var(--g)}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:auto 0 14px}
+.tag{font-size:11px;padding:2px 9px;border:1px solid var(--g3);border-radius:3px;color:var(--g2)}
+.tag.am{color:var(--amber);border-color:rgba(255,210,74,.55)}
+.links{display:flex;gap:20px;flex-wrap:wrap;font-size:13px}
+.links a{color:var(--g);transition:text-shadow .15s}
+.links a::before{content:"\2192  ";color:var(--g2)}
+.links a:hover{text-shadow:var(--glow)}
+.ls{background:var(--lift);border:1px solid var(--line);border-radius:6px;padding:20px 24px;font-size:13px}
+.ls .row{display:grid;grid-template-columns:120px 1fr 190px;gap:14px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.ls .row:last-child{border-bottom:0}
+.ls .row .perm{white-space:nowrap}
+.ls a{color:var(--g)}
+.ls a:hover{text-shadow:var(--glow)}
+.ls .t{color:var(--sage)}
+
+/* research */
+.art{display:block;padding:12px 0;border-bottom:1px dashed var(--line)}
+.art:last-child{border-bottom:0}
+.art b{color:var(--ink);font-weight:500;display:block}
+.art:hover b{color:var(--g);text-shadow:var(--glow)}
+.art small{font-size:12px;color:var(--sage)}
+.art em{font-style:normal;color:var(--amber);font-size:11px;margin-right:8px}
+
+/* contact */
+.cta{text-align:center;background:linear-gradient(180deg,rgba(57,255,122,.07),rgba(57,255,122,.01));
+  border:1px solid var(--line2);border-radius:8px;padding:44px 24px;box-shadow:0 0 40px rgba(57,255,122,.08) inset}
+.cta h2{font-size:30px}
+.cta p{max-width:520px;margin:6px auto 24px}
+.cbox{display:inline-flex;align-items:center;gap:10px;background:#000;border:1px solid var(--line2);border-radius:4px;
+  padding:13px 20px;color:var(--ink);font-family:var(--mono);font-size:15px;cursor:pointer;box-shadow:0 0 18px rgba(57,255,122,.18);
+  transition:box-shadow .15s}
+.cbox:hover{box-shadow:0 0 28px rgba(57,255,122,.38)}
+.cbox .d{color:var(--g)}
+.cbox .hint{color:var(--g3);font-size:12px;margin-left:8px}
+.pills{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}
+.pill{border:1px solid var(--g3);border-radius:4px;padding:6px 16px;color:var(--g2);font-size:13px;transition:all .15s}
+.pill::before{content:"\2192  ";color:var(--g)}
+.pill:hover{border-color:var(--g);color:var(--g);text-shadow:var(--glow);box-shadow:0 0 14px rgba(57,255,122,.2)}
+
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:8px;padding-top:20px;
+  border-top:1px solid var(--line);font-size:12px;color:var(--g3)}
+footer .e{color:var(--sage)}
+
+@media(max-width:860px){
+  body{padding:16px 10px 40px}
+  .body{padding:30px 20px 16px}
+  .nav{margin-left:0;width:100%;gap:14px}
+  .name{font-size:42px !important}
+  .fetch,.cols,.grid{grid-template-columns:1fr}
+  .fetch{gap:22px}
+  .ls .row{grid-template-columns:1fr;gap:2px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="crt" aria-hidden="true"></div>
+
+<main class="win">
+  <header class="bar">
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="path"><b>sarina</b><span>@portfolio: ~/data</span></div>
+    <nav class="nav" aria-label="Main">
+      <a href="#about">~/about</a>
+      <a href="#work">~/work</a>
+      <a href="#research">~/research</a>
+      <a href="#contact">~/contact</a>
+      <span class="status"><i></i>open to opportunities</span>
+    </nav>
+  </header>
+
+  <div class="body">
+
+    <!-- HERO -->
+    <section id="top">
+      <div class="cmd"><span class="p">sarina~/data $</span> whoami --full</div>
+      <h1 class="name">Sarina Nemati<span class="us">_</span></h1>
+      <p class="role glow-soft">Data science, interpretable &amp; scalable ML</p>
+      <p class="intro">A data science professional who enjoys building <span class="hl">disciplined, interpretable, and scalable</span> machine learning solutions for real-world business problems.</p>
+      <div class="checks">
+        <span>CS @ Azad University, Science and Research Branch</span>
+        <span>1st place, Data Cleaning Challenge</span>
+        <span>IRC scientific team, Young Researchers Club</span>
+        <span>writes about AI &amp; XAI</span>
+      </div>
+      <div class="btns">
+        <a class="btn solid" href="#work">$ ls ~/projects -&gt;</a>
+        <a class="btn ghost" href="#contact">./contact --hire</a>
+      </div>
+    </section>
+
+    <!-- NEOFETCH -->
+    <section id="about">
+      <div class="cmd"><span class="p">sarina~/data $</span> neofetch</div>
+      <div class="fetch">
+        <div>
+<pre class="avatar" aria-hidden="true">   ▄▄▄▄▄▄▄▄▄
+  █▀▀▀▀▀▀▀▀▀█
+ █ ▄▄▄   ▄▄▄ █
+ █ ▀▀▀   ▀▀▀ █
+ █    ▄▄▄    █
+  █  ▀▄▄▄▀  █
+   ▀█▄▄▄▄▄█▀
+  ▄██▀▀▀▀▀██▄
+ ██  ░░░░░  ██</pre>
+          <div class="avatar-l">sarina@data</div>
+        </div>
+        <div>
+          <div class="ttl">sarina@portfolio ----------</div>
+          <dl>
+            <dt>OS</dt><dd>Human (CS student build)</dd>
+            <dt>Role</dt><dd>Data science + ML</dd>
+            <dt>Edu</dt><dd>BSc Computer Science, Azad University (SRB), since Oct 2024</dd>
+            <dt>Shell</dt><dd>Python, SQL, Git</dd>
+            <dt>Stack</dt><dd>scikit-learn, pandas, numpy, Streamlit, Plotly</dd>
+            <dt>Focus</dt><dd>XAI, RL, AI ethics, healthcare analytics</dd>
+            <dt>Writes</dt><dd>youthxAI, Aurora Publication, Medium</dd>
+            <dt>Status</dt><dd class="av">open to opportunities</dd>
+          </dl>
+          <div class="sw" aria-hidden="true">
+            <i style="background:#ff5f56"></i><i style="background:#ffbd2e"></i><i style="background:#27c93f"></i><i style="background:#5cf6ff"></i><i style="background:#39ff7a"></i><i style="background:#2bbf5c"></i><i style="background:#1c7a3c"></i><i style="background:#eafff1"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="cols" style="margin-top:20px">
+        <div class="box">
+          <h3>cat education.txt</h3>
+          <div class="item"><b>Computer Science</b><em>Science and Research Branch of Azad University, Oct 2024 to present</em>
+            <p>Machine learning, linear algebra, introduction to data mining, and more.</p></div>
+          <div class="item"><b>Mathematics and Physics</b><em>Professor Hessabi Girl's Highschool, 2021 to 2024</em>
+            <p>GPA 3.9/4.0 (19.20/20 in the Iranian system). Ranked #1 in the graduating class.</p></div>
+        </div>
+        <div class="box">
+          <h3>cat skills.txt</h3>
+          <div class="sk"><b>Languages &amp; app dev</b>Python, Git, SQL, Streamlit, Streamlit Cloud</div>
+          <div class="sk"><b>Machine learning</b>Supervised/unsupervised learning, RL, scikit-learn, pandas, numpy</div>
+          <div class="sk"><b>Visualization</b>seaborn, matplotlib, plotly</div>
+          <div class="sk"><b>AI research</b>AI ethics, XAI (explainable AI)</div>
+          <div class="sk"><b>Analytics</b>PowerBI, Excel</div>
+        </div>
+        <div class="box">
+          <h3>cat volunteer.log</h3>
+          <div class="item"><b>Scientific Team Member, IRC (Ideation, Research, Creation)</b><em>Young Researchers Club, Science and Research Branch of Azad University</em>
+            <ul class="plain" style="margin-top:4px">
+              <li>Liaison with professors and event speakers.</li>
+              <li>Analyzed workshop survey data.</li>
+              <li>Wrote performance reports for participating teams.</li>
+              <li>Helped prepare professors' educational materials.</li>
+            </ul></div>
+          <div class="item"><b>Staff Writer, youthxAI</b><em>Feb 2026 to present</em>
+            <p>Volunteer AI writer producing deep dives on emerging ML trends: tokenization, explainable AI in education, AI and carbon footprint. <a href="https://youthxai.org" target="_blank" rel="noopener">youthxai.org</a></p></div>
+          <div class="item"><b>Editorial Team, Aurora Publication</b><em>Sep 2025 to present</em>
+            <p>Research-backed articles on AI, innovation and new technology, focused on AI for social impact. <a href="https://t.me/AURORASRBIAU" target="_blank" rel="noopener">t.me/AURORASRBIAU</a></p></div>
+        </div>
+        <div class="box">
+          <h3>cat certs.txt &amp;&amp; cat honors.txt</h3>
+          <ul class="plain">
+            <li>Python for Data Science, IBM</li>
+            <li>Global MOOC on Ethics of AI, UNESCO x Coursera</li>
+            <li>Data Science Project-Based Learning, Coursera</li>
+            <li>Data Science &amp; Analytics, HP LIFE</li>
+            <li>Data Cleaning, Kaggle</li>
+            <li>SQL (Advanced), HackerRank</li>
+            <li>Agents and Workflows, OpenAI</li>
+            <li>AI for Research and Beyond, youthxAI</li>
+            <li>AI for Social Impact, ADB Institute</li>
+          </ul>
+          <div class="item" style="margin-top:14px"><b><a href="https://lnkd.in/p/eKiJiJXC" target="_blank" rel="noopener">1st place winner</a></b>
+            <p>Data Cleaning Challenge, StudyBuild Rank #1. <a href="https://github.com/sarinanemati/studybuild-challenge-" target="_blank" rel="noopener">source</a></p></div>
+          <div class="item"><b>Participant, Agentic AI Hackathon</b><em>StarCoach <span style="color:var(--amber)">[results pending]</span></em>
+            <p>Competed on 30 Mehr in a hackathon on building agentic AI systems.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="work">
+      <div class="cmd"><span class="p">sarina~/data $</span> ls -la ~/projects <span class="c"># 2 featured, 6 more</span></div>
+      <div class="lbl">&gt; selected work</div>
+      <h2>Things I built and shipped <small>// drwxr-xr-x</small></h2>
+      <p style="margin-bottom:24px">Two live apps, plus the notebooks behind them.</p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="ctop"><span class="fn">persona2product<s>/</s></span><span class="perm">-rwxr-xr-x</span></div>
+          <p>A context-aware recommendation engine that matches users to products by <span class="hl">shopping persona</span> (brand-oriented, budget-conscious, performance-focused) and refines results with a <span class="hl">reinforcement learning loop</span> from likes.</p>
+          <ul>
+            <li>No shopping-persona dataset existed, so I built a custom web scraper for product and interaction data.</li>
+            <li>Unsupervised clustering segments users into behavioral archetypes that feed the RL engine.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Clustering</span><span class="tag">Reinforcement Learning</span><span class="tag">Web Scraping</span><span class="tag am">streamlit app</span></div>
+          <div class="links">
+            <a href="https://persona2appuct-ypa6bivgxlz4rh36tnrtbv.streamlit.app/" target="_blank" rel="noopener">live demo</a>
+            <a href="https://github.com/sarinanemati/persona2product" target="_blank" rel="noopener">source</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><span class="fn">healthcare-dashboard<s>/</s></span><span class="perm">-rwxr-xr-x</span></div>
+          <p>An interactive dashboard for analyzing a Kaggle healthcare dataset. Admins and analysts track <span class="hl">admission trends, billing analytics</span> and operational efficiency with sidebar filters and live Plotly charts.</p>
+          <ul>
+            <li>Filters update every chart in real time.</li>
+            <li>Exports dynamically generated PDF reports.</li>
+          </ul>
+          <div class="tags"><span class="tag">pandas</span><span class="tag">plotly</span><span class="tag">Healthcare Analytics</span><span class="tag am">streamlit app</span></div>
+          <div class="links">
+            <a href="https://healthcare-dashboard-wf6sjmrhdgdhqfw6q58ay4.streamlit.app/" target="_blank" rel="noopener">live demo</a>
+            <a href="https://github.com/sarinanemati/healthcare-dashboard" target="_blank" rel="noopener">source</a>
+            <a href="https://youtu.be/zTmW3m6h0xI?si=2dDD7fsEoE3_nj0K" target="_blank" rel="noopener">youtube</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="ls" role="list">
+        <div class="row" role="listitem"><span class="perm">-rw-r--r--</span><span class="t">Churn Prediction</span><span class="perm">Coursera score: 100%</span></div>
+        <div class="row" role="listitem"><span class="perm">-rw-r--r--</span><a href="https://github.com/sarinanemati/Logistics-QC-Operations-Performance-Analysis" target="_blank" rel="noopener">logistics-qc-analysis/</a><span class="perm">operations performance</span></div>
+        <div class="row" role="listitem"><span class="perm">-rw-r--r--</span><a href="https://github.com/sarinanemati/Breast-Cancer-Image-Classifier" target="_blank" rel="noopener">breast-cancer-classifier/</a><span class="perm">image classification</span></div>
+        <div class="row" role="listitem"><span class="perm">-rw-r--r--</span><a href="https://github.com/sarinanemati/machine-learning-projects" target="_blank" rel="noopener">house-price-prediction/</a><span class="perm">regression ML</span></div>
+        <div class="row" role="listitem"><span class="perm">-rw-r--r--</span><a href="https://github.com/sarinanemati/machine-learning-projects" target="_blank" rel="noopener">digit-detection-mnist/</a><span class="perm">computer vision</span></div>
+        <div class="row" role="listitem"><span class="perm">-rw-r--r--</span><a href="https://github.com/sarinanemati/wikipedia-research-agent" target="_blank" rel="noopener">wikipedia-research-agent/</a><span class="perm">AI agents</span></div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <div class="cmd"><span class="p">sarina~/data $</span> cat research.md | less</div>
+      <div class="lbl">&gt; research &amp; writing</div>
+      <h2>Papers and articles <small>// open in a new tab</small></h2>
+      <div class="box" style="margin-top:20px">
+        <h3>journal publication</h3>
+        <a class="art" href="https://t.me/halghe_aut" target="_blank" rel="noopener">
+          <b>Explainable AI: A Bridge Between Black Box and Trust</b>
+          <small><em>Q3</em>Halgheh Journal, Computer Science Association of Amirkabir University</small>
+        </a>
+      </div>
+      <div class="box" style="margin-top:20px">
+        <h3>articles &amp; blog posts</h3>
+        <a class="art" href="https://medium.com/@sarinanemati/can-ai-save-dying-languages-exploring-the-high-stakes-battle-to-revive-endangered-tongues-16b3b5085ffa" target="_blank" rel="noopener">
+          <b>Can AI Save Dying Languages?</b>
+          <small><em>Medium</em>The high-stakes battle to revive endangered tongues.</small>
+        </a>
+        <a class="art" href="https://medium.com/@youthxai/what-is-tokenization-all-you-need-to-know-f7f44af00c7a" target="_blank" rel="noopener">
+          <b>What is Tokenization: All You Need to Know</b>
+          <small><em>youthxAI</em>A deep dive into fundamental text tokenization algorithms in NLP.</small>
+        </a>
+        <a class="art" href="https://medium.com/@youthxai/ai-and-carbon-footprint-climate-solution-or-emerging-environmental-risk-f98860d81ea0" target="_blank" rel="noopener">
+          <b>AI and Carbon Footprint: Climate Solution or Risk?</b>
+          <small><em>youthxAI</em>Energy consumption and green AI initiatives.</small>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="cmd"><span class="p">sarina~/data $</span> ./contact --hire</div>
+      <div class="cta">
+        <h2>Let's build something <span class="hl">together</span>.</h2>
+        <p>Have a data problem, a research idea or an internship in mind? Send me a message and I'll reply soon.</p>
+        <button class="cbox" id="copy" type="button" aria-label="Copy email address">
+          <span class="d">$</span><span>mail sarinanematilay@gmail.com</span><span class="cursor" aria-hidden="true"></span><span class="hint" id="hint">click to copy</span>
+        </button>
+        <div class="pills">
+          <a class="pill" href="https://github.com/sarinanemati" target="_blank" rel="noopener">github</a>
+          <a class="pill" href="https://www.linkedin.com/in/sarina-nemati-94b19242a" target="_blank" rel="noopener">linkedin</a>
+          <a class="pill" href="https://t.me/sarinantl" target="_blank" rel="noopener">telegram</a>
+          <a class="pill" href="https://medium.com/@sarinanemati" target="_blank" rel="noopener">medium</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="e">$ echo "(c) 2026 Sarina Nemati, built in the terminal"<span class="cursor" aria-hidden="true"></span></div>
+      <div>main@sarinanemati.github.io, deployed on GitHub Pages</div>
+    </footer>
+  </div>
+</main>
+
+<script>
+(function(){
+  var b=document.getElementById('copy'),h=document.getElementById('hint'),m='sarinanematilay@gmail.com';
+  b.addEventListener('click',function(){
+    function ok(){h.textContent='copied!';setTimeout(function(){h.textContent='click to copy'},1800)}
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m).then(ok,function(){location.href='mailto:'+m})}
+      else{location.href='mailto:'+m}
+    }catch(e){location.href='mailto:'+m}
+  });
+})();
+</script>
+</body>
+</html>
