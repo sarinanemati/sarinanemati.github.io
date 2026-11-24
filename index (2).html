@@ -10,7 +10,6 @@
 <meta property="og:url" content="https://sarinanemati.github.io/">
 <meta property="og:title" content="Sarina Nemati | Data Science Portfolio">
 <meta property="og:description" content="Computer Science student seeking a data science or ML internship. Projects in Python, ML and analytics.">
-<!-- TODO: put a 1200x630 image at images/og.png -->
 <meta property="og:image" content="https://sarinanemati.github.io/images/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sarina Nemati | Data Science Portfolio">
@@ -324,7 +323,7 @@ html{scroll-behavior:auto}
 <li>Wrote performance reports for participating teams.</li>
 <li>Helped prepare professors' educational materials.</li>
 </ul></div>
-<div class="item"><b>Staff Writer, youthxAI</b><em>Feb 2026 to present</em>
+<div class="item"><b>Staff Writer, youthxAI</b><em> Feb 2026 to Aug 2026 </em>
 <p>Volunteer AI writer producing deep dives on emerging ML trends: tokenization, explainable AI in education, AI and carbon footprint. <a href="https://youthxai.org" target="_blank" rel="noopener">youthxai.org</a></p></div>
 <div class="item"><b>Editorial Team, Aurora Publication</b><em>Sep 2025 to present</em>
 <p>Research-backed articles on AI, innovation and new technology, focused on AI for social impact. <a href="https://t.me/AURORASRBIAU" target="_blank" rel="noopener">t.me/AURORASRBIAU</a></p></div>
@@ -348,15 +347,13 @@ html{scroll-behavior:auto}
 </details>
 <div class="item" style="margin-top:14px"><b><a href="https://lnkd.in/p/eKiJiJXC" target="_blank" rel="noopener">1st place winner</a></b>
 <p>Data Cleaning Challenge, StudyBuild Rank #1. <a href="https://github.com/sarinanemati/studybuild-challenge-" target="_blank" rel="noopener">source</a></p></div>
-<div class="item"><b>Participant, Agentic AI Hackathon</b><em>StarCoach</em>
-<p>Built an agentic AI system in a one-day hackathon. Result: <span class="ph">[rank / what you shipped]</span></p></div>
 </div>
 </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="work">
-<div class="cmd"><span class="p">sarina~/data $</span> ls -la ~/projects <span class="c"># 2 featured, more below</span></div>
+<div class="cmd"><span class="p">sarina~/data</span> projects <span class="c"># 2 featured, more below</span></div>
 <div class="lbl">&gt; selected work</div>
 <h2>Things I built and shipped <small>// drwxr-xr-x</small></h2>
 <p style="margin-bottom:24px">Featured projects, plus more work below. <span class="hint2">The Streamlit apps run on free hosting and may need a few seconds to wake up.</span></p>
@@ -405,7 +402,6 @@ html{scroll-behavior:auto}
 </div>
 
 <div class="ls" role="list">
-<!-- TODO: add your XAI project here (SHAP / LIME). Replace the link, then remove class="ph" -->
 <div class="row" role="listitem"><span class="perm">-rw-r--r--</span><a class="ph" href="https://github.com/sarinanemati/REPLACE-XAI-REPO" target="_blank" rel="noopener">[xai-project/]</a><span class="perm">explainable ML (SHAP / LIME)</span></div>
 <div class="row" role="listitem"><span class="perm">-rw-r--r--</span><a href="https://github.com/sarinanemati/Logistics-QC-Operations-Performance-Analysis" target="_blank" rel="noopener">logistics-qc-analysis/</a><span class="perm">operations performance</span></div>
 <div class="row" role="listitem"><span class="perm">-rw-r--r--</span><a href="https://github.com/sarinanemati/wikipedia-research-agent" target="_blank" rel="noopener">wikipedia-research-agent/</a><span class="perm">AI agents</span></div>
@@ -418,7 +414,7 @@ html{scroll-behavior:auto}
 
 <!-- TEACHING -->
 <section id="teaching">
-<div class="cmd"><span class="p">sarina~/data $</span> ls ~/teaching</div>
+<div class="cmd"><span class="p">sarina~/data</span> teaching </div>
 <div class="lbl">&gt; teaching experience</div>
 <h2>Teaching <small>// free and beginner-friendly</small></h2>
 <p style="margin-bottom:24px">I enjoy explaining machine learning in plain language, and I do it in public.</p>
@@ -444,13 +440,12 @@ html{scroll-behavior:auto}
 
 <!-- RESEARCH -->
 <section id="research">
-<div class="cmd"><span class="p">sarina~/data $</span> cat research.md | less</div>
+<div class="cmd"><span class="p">sarina~/data</span> research </div>
 <div class="lbl">&gt; research &amp; writing</div>
 <h2>Papers and articles <small>// open in a new tab</small></h2>
 
 <div class="box" style="margin-top:20px">
 <h3>Journal publication</h3>
-<!-- TODO: link the paper PDF or the journal page instead of the Telegram channel if you can -->
 <a class="art" href="https://t.me/halghe_aut" target="_blank" rel="noopener">
 <b>Explainable AI: A Bridge Between Black Box and Trust</b>
 <small><em>Q3</em>Halgheh Journal, Computer Science Association of Amirkabir University</small>
@@ -476,7 +471,7 @@ html{scroll-behavior:auto}
 
 <!-- CONTACT -->
 <section id="contact">
-<div class="cmd"><span class="p">sarina~/data $</span> ./contact --hire</div>
+<div class="cmd"><span class="p">sarina~/data</span> contact </div>
 <div class="cta">
 <h2>Let's build something <span class="hl">together</span>.</h2>
 <p>Have a data problem, a research idea or an internship in mind? Send me a message and I'll reply soon.</p>
@@ -505,8 +500,7 @@ html{scroll-behavior:auto}
 
 <script>
 (function(){
-// PASTE YOUR CV PDF LINK BETWEEN THE QUOTES (a full URL, or 'cv.pdf' if the file sits next to index.html).
-// While it is empty, the Download CV buttons stay hidden.
+
 var CV_URL='';
 var cvs=document.querySelectorAll('.cv-link');
 for(var i=0;i<cvs.length;i++){if(CV_URL){cvs[i].href=CV_URL;cvs[i].target='_blank';cvs[i].rel='noopener'}else{cvs[i].style.display='none'}}
